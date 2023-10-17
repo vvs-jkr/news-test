@@ -1,7 +1,8 @@
 import styles from "./styles.module.css";
+import { TOTAL_PAGES } from "../../constants/constants";
 
 const Pagination = ({
-  totalPages,
+//   totalPages,
   handleNextPage,
   handlePreviousPage,
   handlePageClick,
@@ -17,7 +18,7 @@ const Pagination = ({
         {"<"}
       </button>
       <div className={styles.list}>
-        {[...Array(totalPages)].map((_, index) => {
+        {[...Array(TOTAL_PAGES)].map((_, index) => {
           return (
             <button
               onClick={() => handlePageClick(index + 1)}
@@ -31,7 +32,7 @@ const Pagination = ({
         })}
       </div>
       <button
-        disabled={currentPage >= totalPages}
+        disabled={currentPage >= TOTAL_PAGES}
         onClick={handleNextPage}
         className={styles.arrow}
       >
