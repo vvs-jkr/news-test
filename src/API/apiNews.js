@@ -25,8 +25,6 @@ export const getNews = async ({
   }
 };
 
-<<<<<<< HEAD
-=======
 export const getLatestNews = async () => {
   try {
     const res = await axios.get(`${BASE_URL}latest-news`, {
@@ -40,7 +38,6 @@ export const getLatestNews = async () => {
   }
 };
 
->>>>>>> 332c458 (add latest news)
 export const getCategories = async () => {
   try {
     const res = await axios.get(`${BASE_URL}available/categories`, {

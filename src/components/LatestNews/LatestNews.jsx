@@ -1,11 +1,4 @@
-
-import BannersList from "../BannersList/BannersList";
-import styles from "./styles.module.css";
-
-const LatestNews = ({ banners, isLoading }) => {
-  return (
-    <section className={styles.section}>
-      <BannersList banners={banners} isLoading={isLoading} />
+/* eslint-disable no-undef */
 
 import { getLatestNews } from "../../API/apiNews";
 import { useFetch } from "../../helpers/hocs/useFetch";
@@ -18,7 +11,6 @@ const LatestNews = () => {
   return (
     <section className={styles.section}>
       <BannersList banners={data && data.news} isLoading={isLoading} />
-
     </section>
   );
 };
