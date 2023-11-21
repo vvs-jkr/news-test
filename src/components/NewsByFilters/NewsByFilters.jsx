@@ -1,11 +1,3 @@
-import { TOTAL_PAGES } from "../../constants/constants";
-import NewsFilters from "../NewsFilters/NewsFilters";
-import NewsList from "../NewsList/NewsList";
-import Pagination from "../Pagination/Pagination";
-import styles from "./styles.module.css";
-
-const NewsByFilters = ({ filters, changeFilter, isLoading, news }) => {
-
 import { getNews } from "../../API/apiNews";
 import { PAGE_SIZE, TOTAL_PAGES } from "../../constants/constants";
 import { useFetch } from "../../helpers/hocs/useFetch";
@@ -31,7 +23,6 @@ const NewsByFilters = () => {
     keywords: debouncedKeywords,
   });
 
-
   const handleNextPage = () => {
     if (filters.page_number < TOTAL_PAGES) {
       changeFilter("page_number", filters.page_number + 1);
@@ -51,31 +42,18 @@ const NewsByFilters = () => {
   return (
     <section className={styles.section}>
       <NewsFilters changeFilter={changeFilter} filters={filters} />
-      <Pagination
 
       <PaginationWrapper
         top
         bottom
-        handleNextPage={handleNextPage}
         handlePreviousPage={handlePreviousPage}
+        handleNextPage={handleNextPage}
         handlePageClick={handlePageClick}
         totalPages={TOTAL_PAGES}
         currentPage={filters.page_number}
-      />
-
-      <NewsList isLoading={isLoading} news={news} />
-
-      <Pagination
-        handleNextPage={handleNextPage}
-        handlePreviousPage={handlePreviousPage}
-        handlePageClick={handlePageClick}
-        totalPages={TOTAL_PAGES}
-        currentPage={filters.page_number}
-      />
       >
         <NewsList isLoading={isLoading} news={data?.news} />
       </PaginationWrapper>
-
     </section>
   );
 };
