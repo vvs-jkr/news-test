@@ -1,13 +1,17 @@
 import styles from "./styles.module.css";
+<<<<<<< HEAD
 import { getNews } from "../../API/apiNews";
 import { useDebounce } from "../../helpers/hooks/useDebounce";
 import { PAGE_SIZE } from "../../constants/constants";
 import { useFetch } from "../../helpers/hocs/useFetch";
 import { useFilters } from "../../helpers/hooks/useFilters";
+=======
+>>>>>>> 332c458 (add latest news)
 import LatestNews from "../../components/LatestNews/LatestNews";
 import NewsByFilters from "../../components/NewsByFilters/NewsByFilters";
 
 const Main = () => {
+<<<<<<< HEAD
   const { filters, changeFilter } = useFilters({
     page_number: 1,
     page_size: PAGE_SIZE,
@@ -32,6 +36,13 @@ const Main = () => {
         filters={filters}
         changeFilter={changeFilter}
       />
+=======
+  return (
+    <main className={styles.main}>
+      <LatestNews />
+
+      <NewsByFilters />
+>>>>>>> 332c458 (add latest news)
     </main>
   );
 };
